@@ -1,0 +1,15 @@
+<launch>
+    <arg name="id" default="$(env dji_id)" doc="uav_id type [1, 2, 3]"/>
+
+    <include file="$(find dji_sdk)/launch/sdk.launch" />
+
+    <node pkg="n3_test_pkg" type="dji_test_node" name="dji_test_node" output="screen">
+        <param name="id" value="$(arg id)"/>
+    </node>
+
+    <node pkg="radio_proxy" type="dji_proxy" name="dji_proxy" output="screen">
+        <param name="id" value="$(arg id)"/>
+        <param name="port" value="/dev/usb_radio" />
+        <param name="baud_rate" value="230400" />
+    </node>
+</launch>

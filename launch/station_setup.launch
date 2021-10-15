@@ -1,0 +1,16 @@
+<launch>
+    <node pkg="n3_test_pkg" type="station_test_node" name="station_test_node" output="screen" launch-prefix="gnome-terminal --tab --">
+        <param name="uav_num" value="3" />
+    </node>
+
+    <node pkg="n3_test_pkg" type="station_console_node" name="station_console_node" output="screen" launch-prefix="gnome-terminal --tab --">
+        <param name="uav_num" value="3" />
+    </node>
+
+
+    <node pkg="radio_proxy" type="station_proxy" name="station_proxy" output="screen" launch-prefix="gnome-terminal --tab --">
+        <param name="uav_num" value="3" />
+        <param name="port" value="/dev/usb_radio" />
+        <param name="baud_rate" value="230400" />
+    </node>
+</launch>
