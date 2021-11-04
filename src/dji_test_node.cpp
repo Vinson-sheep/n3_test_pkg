@@ -171,7 +171,7 @@ int main(int argc, char *argv[])
     ros::NodeHandle nh;
     ros::NodeHandle private_nh("~");
 
-    private_nh.param<int>("uav_id", id, 1);
+    private_nh.param<int>("id", id, 1);
 
     //service
     drone_activation_service = nh.serviceClient<dji_sdk::Activation>("dji_sdk/activation");
